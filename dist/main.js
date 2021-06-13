@@ -16,7 +16,7 @@
   \******************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"body {\\n  background-color: black; }\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://weer/./src/styles.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n___CSS_LOADER_EXPORT___.push([module.id, \"@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap);\"]);\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"body {\\n  background: #121212;\\n  color: white;\\n  font-family: 'Poppins', sans-serif; }\\n\\nh1 {\\n  font-weight: 500; }\\n\\n.searchbar {\\n  width: 300px;\\n  height: 40px;\\n  border: 1px solid white;\\n  border-radius: 80px;\\n  margin: auto;\\n  opacity: 70%;\\n  display: flex;\\n  transition: 0.1s all ease; }\\n  .searchbar:hover {\\n    opacity: 1; }\\n  .searchbar input {\\n    width: 60%;\\n    margin-left: 30px !important;\\n    color: white;\\n    background-color: transparent;\\n    font-size: 16px; }\\n    .searchbar input:focus {\\n      border: none;\\n      outline: none;\\n      outline-offset: 0px; }\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://weer/./src/styles.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -56,7 +56,17 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n\nconsole.log('working?')\n\n//# sourceURL=webpack://weer/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n/* harmony import */ var _weatherjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weatherjs */ \"./src/weatherjs.js\");\n\n\n// import image from './search-icon.svg'\n\n\nconsole.log('working?')\n\nasync function main(city){\n\tconsole.log(await (0,_weatherjs__WEBPACK_IMPORTED_MODULE_1__.fetchCurrentData)(city))\n}\nmain(\"Athens\")\n\n\n\n//# sourceURL=webpack://weer/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/weatherjs.js":
+/*!**************************!*\
+  !*** ./src/weatherjs.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"weather\": () => (/* binding */ weather),\n/* harmony export */   \"fetchCurrentData\": () => (/* binding */ fetchCurrentData)\n/* harmony export */ });\nasync function weather(city){\n\tlet data = await fetchCurrentData(city)\n\n\n\treturn data\n}\n\n\nasync function fetchCurrentData(city){\n\tlet response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=56211995b80635f33dc2f884e78a693e`, {\n\t\tmode: \"cors\"\n\t})\n\n\tlet parsedData = await response.json()\n\n\treturn parsedData\n}\n\n\n\n//# sourceURL=webpack://weer/./src/weatherjs.js?");
 
 /***/ })
 

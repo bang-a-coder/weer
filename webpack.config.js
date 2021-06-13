@@ -13,16 +13,39 @@ module.exports = {
   module: {
 	rules: [
 	  {
-	    test: /\.scss$/,
-	    use: [
-	      // Creates `style` nodes from JS strings
-	      "style-loader",
-	      // Translates CSS into CommonJS
-	      "css-loader",
-	      // Compiles Sass to CSS
-	      "sass-loader",
-	    ],
+		test: /\.scss$/,
+		use: [
+		// Creates `style` nodes from JS strings
+		"style-loader",
+		// Translates CSS into CommonJS
+		"css-loader",
+		// Compiles Sass to CSS
+		"sass-loader",
+		],
 	  },
+	  {
+	     	test: /\.(png|svg|jpg|jpeg|gif)$/i,
+	     	type: 'asset/resource',
+	  },
+	  {
+		test: /\.(gif|png|jpe?g)$/,
+		use: [
+		  {
+		    loader: 'file-loader',
+		    options: {
+		      name: '[name].[ext]',
+		      outputPath: 'assets/images/'
+		    }
+		  }
+		]
+	      },
+	      
+	      {
+		test:/\.html$/,
+		use: [
+		  'html-loader'
+		]
+	      },
 	],
       },
 };
