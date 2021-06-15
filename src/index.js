@@ -1,14 +1,14 @@
+import { showman } from "./showman";
 import "./styles.scss";
-import { fetchCurrentData, weather } from "./weatherjs";
-// import image from './search-icon.svg'
+import { fetchCurrentData } from "./weatherjs";
 
-
-console.log('working?')
 
 async function main(city){
-	console.log(await fetchCurrentData(city))
+	let weatherData = await fetchCurrentData(city, 'c')
+
+	// console.log(weatherData)
+	showman(weatherData)
 }
-main("Athens")
 
 function search(){
 	let query = document.querySelector('input').value
@@ -17,3 +17,5 @@ function search(){
 }
 
 document.querySelector('#search-button').addEventListener('click', search)
+
+main('athens')
