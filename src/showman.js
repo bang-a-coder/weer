@@ -1,3 +1,5 @@
+import countryCodeEmoji from "country-code-emoji"
+
 export function showman(obj){
 	console.log(obj)
 
@@ -9,6 +11,6 @@ export function showman(obj){
 
 	temp.innerHTML = obj.main.temp + '°'
 	feelsLike.innerHTML = obj.main.feels_like
-	cityName.innerHTML = obj.name
+	cityName.innerHTML = obj.name + countryCodeEmoji(obj.sys.country)
 	cloud.innerHTML = obj.weather[0].description
 }
