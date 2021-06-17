@@ -2,11 +2,15 @@ import { showman } from "./showman";
 import "./styles.scss";
 import { fetchCurrentData } from "./weatherjs";
 
+let unit = 'c'
+let location
 
-async function main(city){
-	let weatherData = await fetchCurrentData(city, 'c')
+
+async function main(city, unit){
+	let weatherData = await fetchCurrentData(city, unit)
 
 	showman(weatherData) // visualise relusts
+	location = weatherData.name
 }
 
 function search(e){
@@ -14,11 +18,22 @@ function search(e){
 	if (e.keyCode === 13 || e === 'click') {
 		let query = document.querySelector('input').value
 
-		main(query)
+		main(query, unit)
+		console.log(main(query,unit))
 	}
 }
+
+document.querySelector('.switcharoo').addEventListener('change',()=>{
+	if (document.querySelector('.switcharoo').checked){
+		unit = 'f'
+		main(location, unit)
+	} else{
+		unit = 'c'
+		main(location, unit)
+	}
+})
 
 document.querySelector('#search-button').addEventListener('click', () => search('click'))
 document.querySelector('#search-button').addEventListener('keyup', (e) => search(e))
 
-main('amsterdam')
+main('amsterdam', unit)

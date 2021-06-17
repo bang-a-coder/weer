@@ -12,17 +12,25 @@ export async function fetchCurrentData(city, system){
 
 function converter(obj, type){
 	if (type == 'c') {	// if its celcius
-		obj.main.feels_like = Math.round(obj.main.feels_like - 273.15)
-		obj.main.temp = Math.round(obj.main.temp - 273.15)
-		obj.main.temp_max = Math.round(obj.main.temp_max - 273.15)
-		obj.main.temp_min = Math.round(obj.main.temp_min - 273.15)
+		obj.main.feels_like = normalConv(obj.main.feels_like)
+		obj.main.temp = normalConv(obj.main.temp)
+		obj.main.temp_max = normalConv(obj.main.temp_max)
+		obj.main.temp_min = normalConv(obj.main.temp_min)
 	}
 
 	if (type == 'f') {
-		obj.main.feels_like = Math.round((obj.main.feels_like - 273.15)* 9/5 + 32)
-		obj.main.temp = Math.round((obj.main.temp - 273.15)* 9/5 + 32)
-		obj.main.temp_max = Math.round((obj.main.temp_max - 273.15)* 9/5 + 32)
-		obj.main.temp_min = Math.round((obj.main.temp_min - 273.15)* 9/5 + 32)	
+		obj.main.feels_like = retardConv(obj.main.feels_like)
+		obj.main.temp = retardConv(obj.main.temp)
+		obj.main.temp_max = retardConv(obj.main.temp_max)
+		obj.main.temp_min = retardConv(obj.main.temp_min)	
+	}
+
+	function normalConv(og){
+		return Math.round(og - 273.15)
+	}
+
+	function retardConv(og){
+		return Math.round((og- 273.15) * 9/5 + 32)
 	}
 }
 
