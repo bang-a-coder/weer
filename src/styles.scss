@@ -80,6 +80,17 @@ h1 {
 
 		}
 	}
+
+	.cloud {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+
+		
+	}
 }
 
 
