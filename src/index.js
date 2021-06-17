@@ -5,7 +5,6 @@ import { fetchCurrentData } from "./weatherjs";
 let unit = 'c'
 let location
 
-
 async function main(city, unit){
 	let weatherData = await fetchCurrentData(city, unit)
 
@@ -17,9 +16,7 @@ function search(e){
 	console.log(e.keyCode)
 	if (e.keyCode === 13 || e === 'click') {
 		let query = document.querySelector('input').value
-
 		main(query, unit)
-		console.log(main(query,unit))
 	}
 }
 
